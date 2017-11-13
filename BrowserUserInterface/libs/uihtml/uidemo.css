@@ -1,0 +1,304 @@
+@CHARSET "UTF-8";
+body {
+	font-family: sans-serif;
+	background-color: white;
+}
+a {
+	display: block;
+	cursor: pointer;
+	text-decoration: none;
+	color: inherit;
+}
+h5 {
+	margin: 5px;
+	padding: 0px;
+	font-size: 12px;
+	font-family: "Gill Sans",Helvetica,sans-serif;
+}
+.hide {
+	position: absolute;
+	top: -1px;
+	left: -1px;
+	width: 1px;
+	height: 1px;
+	opacity: 0;
+}
+#GTARC {
+	position: fixed;
+	bottom: 5px;
+	left: 45%;
+	color: #000;
+	opacity: 0.4;
+	font-size: 14px;
+	font-family: Rockwell;
+}
+.loading {
+	display: block;
+}
+.not-loading {
+	display: none;
+}
+#loader {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	opacity: 0.4;
+	background: #fff url("../Images/loading.gif") no-repeat center;
+}
+#demoHeader {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	margin: 0px;
+	padding: 0px;
+	height: 50px;
+	width: 100%;
+    outline: 1px solid black;
+    text-align: center;
+}
+#cardContainer {
+    position: fixed;
+    top: 50px;
+    left: 0px;
+    width: 1500px;
+    height: 100%;
+    outline: 1px dashed black;
+}
+#topCardContainer {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 400px;
+    outline: 1px dashed black;
+}
+#bottomCardContainer {
+    position: absolute;
+    top: 400px;
+    width: 100%;
+    height: 400px;
+    outline: 1px dashed black;
+}
+#topLeftCard {
+	position: absolute;
+    left: 0px;
+	height: 100%;
+	width: 50%;
+    text-align: center;
+    outline: 1px dashed black;
+}
+#topRightCard {
+	position: absolute;
+	left: 50%;
+	height: 100%;
+	width: 50%;
+    text-align: center;
+    outline: 1px dashed black;
+}
+#bottomLeftCard {
+	position: absolute;
+	left: 0px;
+	height: 100%;
+	width: 25%;
+    outline: 1px solid black;
+    text-align: center;
+}
+#bottomCenterCard {
+	position: absolute;
+	left: 25%;
+	height: 100%;
+	width: 50%;
+    outline: 1px solid black;
+    text-align: center;
+}
+#bottomRightCard {
+	position: absolute;
+	left: 75%;
+	height: 100%;
+	width: 25%;
+    outline: 1px solid black;
+    text-align: center;
+}
+#controlItems {
+    position: absolute;
+	height: 10%;
+	width: 100%;
+    vertical-align: middle;
+}
+#tableItems {
+    position: absolute;
+    top: 10%;
+	height: 90%;
+	width: 100%;
+    vertical-align: middle;
+    overflow-y: scroll;
+}
+#topRightCardControl {
+    position: relative;
+    width: 100%;
+    padding: 0px;
+    margin: 2px auto;
+}
+.cardControlItem {
+	display: inline;
+}
+.noToggleButton {
+	font-size: 16px;
+	font-family: "Gill Sans",Helvetica,sans-serif;
+	color: #fff;
+	height: 25px;
+	margin: 0px;
+	padding: 0px 10px 0px 10px;
+	outline-color: #424344; 
+	outline-style: none none none solid;
+}
+.topRightTableItem {
+    display: inline;
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+}
+.tableItemHeader {
+    width: 100%;
+    height: 100%;
+    background-color: gray;
+}
+.tableItem {
+    border: 1px solid black;
+    text-align: center;
+    vertical-align: middle;
+    background-color: lightgray;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.tableItemsDiv {
+    float: left;
+    height: 100%;
+}
+#bottomCenterTopCard {
+    position: absolute;
+    width: 100%;
+    height: 25%;
+}
+#bottomCenterCenterCard {
+    position: absolute;
+    top: 25%;
+    width: 100%;
+    height: 65%;
+    overflow-y: scroll;
+}
+#bottomCenterBottomCard {
+    position: absolute;
+    top: 90%;
+    width: 100%;
+    height: 10%;
+}
+.bottomHeaderCenterItem {
+    float: left;
+    height: 100%;
+    width: 10%;
+    border: 3px solid blue;
+    margin: 0px 2px 0px 2px;
+    background-color: lightgrey;
+    border-radius: 5px;
+}
+.bottomCenterItem {
+    float: left;
+    height: 100%;
+    width: 10%;
+    border: 1px solid blue;
+    margin: 0px 2px 0px 2px;
+    background-color: lightgrey;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.blankBottomCenterItem {
+    float: left;
+    height: 100%;
+    width: 10%;
+    border: 1px solid white;
+    margin: 0px 2px 0px 2px;
+}
+.optionsDiv {
+    width: 100%;
+    float: left;
+    margin: .5% 0% .5% 0%;
+}
+#topLeftC1 {
+    position: absolute;
+    left: 0;
+    width: 66%;
+    height: 34%;
+}
+#topLeftC2 {
+    position: absolute;
+    left: 66%;
+    width: 34%;
+    height: 34%;
+}
+#topLeftC34 {
+    position: absolute;
+    left: 0;
+    top: 34%;
+    width: 50%;
+    height: 66%;
+}
+#topLeftC3 {
+    position: absolute;
+    width: 100%;
+    height: 66%;
+}
+#topLeftC4 {
+    position: absolute;
+    top: 66%;
+    width: 100%;
+    height: 34%;
+}
+#topLeftC5 {
+    position: absolute;
+    top: 34%;
+    left: 50%;
+    width: 50%;
+    height: 66%;
+}
+
+.menuButton {
+    background-color: lightgray;
+    color: black;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.menuButton:hover, .menuButton:focus {
+    background-color: dimgrey;
+}
+
+.menuDiv:hover .menuDivContent{
+    display: block;
+}
+
+.menuDiv {
+    float: left;
+    display: inline-block;
+}
+.menuDivContent {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.menuDivContent span {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+}
+.menuDivContent span:hover {background-color: #f1f1f1}
+.showMenu {display:block;}

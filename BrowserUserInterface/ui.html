@@ -26,10 +26,12 @@
 
 	<!-- Example code -->
 	<script type="text/javascript">
+   
 		// Program starts here. Creates a sample graph in the
 		// DOM node with the specified ID. This function is invoked
 		// from the onLoad event handler of the document (see below).
-		function main(container)
+	/*	
+   function main(container)
 		{
 			// Checks if the browser is supported
 			if (!mxClient.isBrowserSupported())
@@ -43,7 +45,9 @@
 				mxEvent.disableContextMenu(container);
 				
 				// Creates the graph inside the given container
-				var graph = new mxGraph(container);
+			   var graph =  new mxGraph(container);
+        
+        // If the mouse is over a cell object (node or edge) disable panning
 				graph.panningHandler.ignoreCell = false;
 				graph.setPanning(true);
 				
@@ -54,12 +58,12 @@
 				 * translation, which depends on this value, and small enough to give
 				 * a small empty buffer around the graph. Default is 400x400.
 				 */
-				graph.scrollTileSize = new mxRectangle(0, 0, 400, 400);
+/*				graph.scrollTileSize = new mxRectangle(0, 0,10, 10);
 				
 				/**
 				 * Returns the padding for pages in page view with scrollbars.
 				 */
-				graph.getPagePadding = function()
+/*				graph.getPagePadding = function()
 				{
 					return new mxPoint(Math.max(0, Math.round(graph.container.offsetWidth - 34)),
 							Math.max(0, Math.round(graph.container.offsetHeight - 34)));
@@ -68,7 +72,7 @@
 				/**
 				 * Returns the size of the page format scaled with the page size.
 				 */
-				graph.getPageSize = function()
+/*				graph.getPageSize = function()
 				{
 					return (this.pageVisible) ? new mxRectangle(0, 0, this.pageFormat.width * this.pageScale,
 							this.pageFormat.height * this.pageScale) : this.scrollTileSize;
@@ -80,7 +84,7 @@
 				 * left page and width and height are the vertical and horizontal
 				 * page count.
 				 */
-				graph.getPageLayout = function()
+/*				graph.getPageLayout = function()
 				{
 					var size = (this.pageVisible) ? this.getPageSize() : this.scrollTileSize;
 					var bounds = this.getGraphBounds();
@@ -131,7 +135,7 @@
 				 * Works if only the scale of the graph changes or if pages
 				 * are visible and the visible pages do not change.
 				 */
-				var graphViewValidate = graph.view.validate;
+/*				var graphViewValidate = graph.view.validate;
 				graph.view.validate = function()
 				{
 					if (this.graph.container != null && mxUtils.hasScrollbars(this.graph.container))
@@ -211,7 +215,7 @@
 				graph.getModel().beginUpdate();
 				try
 				{
-					var v1 = graph.insertVertex(parent, null, 'Hello,', 20, 20, 80, 30);
+					var v1 = graph.insertVertex(parent, null, 'Hello,', 200, 20, 80, 30);
 					var v2 = graph.insertVertex(parent, null, 'World!', 200, 150, 80, 30);
 					var e1 = graph.insertEdge(parent, null, '', v1, v2);
 				}
@@ -231,18 +235,18 @@
 					graph.container.scrollLeft = Math.floor(Math.max(0, bounds.x - Math.max(0, (graph.container.clientWidth - width) / 2)));
 				}, 0);
 			}
-		};
+		}; */
 	</script>
   
-</head>
+ </head> 
 
 
-
+<!--<body onload="main(document.getElementById('graphContainer'))">-->
      <div id="container">
     <!-- This element's contents will be replaced with your component. -->
     </div>
 
- <div id="graphContainer"
-		style="position:relative;overflow:auto;width:321px;height:241px;background:url('https://t7.rbxcdn.com/8564d0299469b0be78093a0bf2f232b2');cursor:default;">
+   <div id="graphContainer"
+		style="position:relative;overflow:auto;width:600px;height:600px;background:url('https://t7.rbxcdn.com/8564d0299469b0be78093a0bf2f232b2');cursor:default;">
 	</div>
 

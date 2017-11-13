@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>UIDemo</title>
+    <link href="./uidemo.css" type="text/css" rel="stylesheet" />
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <div id="cardContainer" onselectstart="return false">
+            <div id="topCardContainer">
+                <div id="topLeftCard">
+                    This is the top left card
+                </div>
+                <div id="topRightCard">
+                    This is the top right card
+                </div>
+            </div>
+            <div id="bottomCardContainer">
+                <div id="bottomLeftCard">
+                    This is the bottom left card
+                </div>
+                <div id="bottomCenterCard">
+                    This is the bottom center card
+                </div>
+                <div id="bottomRightCard">
+                    This is the bottom right card
+                </div>
+            </div>
+        </div>
+        <div id="demoHeader">
+            <div class="menuDiv">
+                <button class="menuButton">Control</button>
+                <div id="mainMenu" class="menuDivContent">
+                </div>
+            </div>
+            This is a UI Demo
+        </div>
+    </div>
+    <script src="./Libraries/jquery-1.11.3.js"></script>
+    <script src="./scripts/example.js"></script>
+    <script src="./scripts/constructMainMenu.js"></script>
+    <script src="./scripts/constructTopLeftCard.js"></script>
+    <script src="./scripts/constructTopRightCard.js"></script>
+    <script src="./scripts/constructBottomCenterCard.js"></script>
+    <script src="./scripts/constructui.js"></script>
+</body>
+</html>

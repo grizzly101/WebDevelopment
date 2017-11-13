@@ -1,0 +1,29 @@
+<html>
+
+<head>
+<script>
+
+function readfile(f)
+{
+var reader = new FileReader();
+reader.onload = function(event) {
+    var contents = event.target.result;
+    console.log("File contents: " + contents);
+};
+
+reader.onerror = function(event) {
+    console.error("File could not be read! Code " + event.target.error.code);
+};
+
+var fileInputElement = document.getElementById("file-input");
+
+reader.readAsText(f); 
+}
+</script>
+</head>
+
+<body>
+<input type="file" onchange="readfile(this.files[0])">
+</body>
+
+</html>

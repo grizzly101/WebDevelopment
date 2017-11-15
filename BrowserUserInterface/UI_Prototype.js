@@ -1,5 +1,5 @@
-var json_edges = '{"system_edges":{"edges":[{"edgeID":"1","pn":"3","cn":"4"},{"edgeID":"2","pn":"4","cn":"5"}]}}';
-var json_nodes = '{"system_nodes":{"nodes":[{"nodeID":"3","label":"A"},{"nodeID":"4","label":"B"},{"nodeID":"5","label":"C"}]}}';
+var json_edges = '{"system_edges":{"edges":[{"edgeID":"1","pn":"3","cn":"4"},{"edgeID":"2","pn":"4","cn":"5"}, {"edgeID":"3","pn":"4","cn":"6"}]}}';
+var json_nodes = '{"system_nodes":{"nodes":[{"nodeID":"3","label":"A"},{"nodeID":"4","label":"B"},{"nodeID":"5","label":"C"},{"nodeID":"6","label":"D"}]}}';
 
 class SelectMenu extends React.Component {
   render() {
@@ -70,9 +70,26 @@ class EntireUserInterface extends React.Component {
 				// Creates the graph inside the given container
 				this.graph = new mxGraph(container);
 
+        // Avoids overlap of edges and collapse icons
+				this.graph.keepEdgesInBackground = true;
+        
         // If the mouse is over a cell object (node or edge) disable panning
 				this.graph.panningHandler.ignoreCell = false;
 				this.graph.setPanning(true);
+        	// Enables automatic sizing for vertices after editing and
+				// panning by using the left mouse button.
+				this.graph.setAutoSizeCells(true);
+				this.graph.panningHandler.useLeftButtonForPanning = true;
+        
+        // Set some stylesheet options for the visual appearance
+				var style = this.graph.getStylesheet().getDefaultVertexStyle();
+				style[mxConstants.STYLE_SHAPE] = 'treenode';
+				style[mxConstants.STYLE_GRADIENTCOLOR] = 'white';
+				style[mxConstants.STYLE_SHADOW] = true;
+				
+				style = this.graph.getStylesheet().getDefaultEdgeStyle();
+				style[mxConstants.STYLE_EDGE] = mxEdgeStyle.TopToBottom;
+				style[mxConstants.STYLE_ROUNDED] = true;
         
         /**
 				 * Specifies the size of the size for "tiles" to be used for a graph with
@@ -83,8 +100,27 @@ class EntireUserInterface extends React.Component {
 				 */
 				this.graph.scrollTileSize = new mxRectangle(0, 0,10, 10);
         
-       
+       // Enables automatic layout on the graph and installs
+				// a tree layout for all groups who's children are
+				// being changed, added or removed.
+				var layout = new  mxCompactTreeLayout(this.graph, false);
+				layout.useBoundingBox = false;
+				layout.edgeRouting = true;
+				layout.levelDistance = 10;
+				layout.nodeDistance = 50;
+				layout.horizontal = true;
+				
+
+				var layoutMgr = new mxLayoutManager(this.graph);
+        layoutMgr.getLayout = function(cell)
+				{
+					if (cell.getChildCount() > 0)
+					{
+						return layout;
+					}
+				};
         
+        layout.execute(this.graph.getDefaultParent());
         /**
 				 * Returns the size of the page format scaled with the page size.
 				 */
@@ -257,24 +293,23 @@ class EntireUserInterface extends React.Component {
               var id = tree_nodes_obj.system_nodes.nodes[i].nodeID;
               var label =  tree_nodes_obj.system_nodes.nodes[i].label; 
               
-              var v1 = this.graph.insertVertex(parent, id, label, 20, 20+ (i*80), 80 , 30);
+              var v1 = this.graph.insertVertex(parent, id, label, 0, 0, 80 , 30);
           }
           
            for(i=0; i< tree_edges_obj.system_edges.edges.length; i++)
           {
+              
               var pnID = tree_edges_obj.system_edges.edges[i].pn;
               var cnID =  tree_edges_obj.system_edges.edges[i].cn; 
               
               var pn = this.graph.getModel().getCell(pnID);
               var cn = this.graph.getModel().getCell(cnID);
-              console.log('pn.id: ' + pn.id);
-              console.log('cn.id: ' + cn.id);
+              //console.log('pn.id: ' + pn.id);
+             // console.log('cn.id: ' + cn.id);
               var e1 = this.graph.insertEdge(parent, null, '', pn,cn);
              
           }
-				//	var v1 = this.graph.insertVertex(parent, null, 'Hello,', 20, 20, 80, 30);
-				//	var v2 = this.graph.insertVertex(parent, null, 'World!', 200, 150, 80, 30);
-					//var e1 = this.graph.insertEdge(parent, null, '', v1, v2);
+
 				}
 				finally
 				{

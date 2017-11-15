@@ -185,6 +185,10 @@ class EntireUserInterface extends React.Component {
         	
         var graphSizeDidChange = this.graph.sizeDidChange;
         
+        /*
+         Since this functor is being assigned to this.graph, the 'this' keyword refers to 
+         'this.graph' and not the class object 'EnhancedUserInterface'.
+        */
 				this.graph.sizeDidChange = function()
 				{
 					

@@ -1,0 +1,9 @@
+{"system_nodes":
+	{"nodes":[
+		 {"nodeID":1,"label":"A"}, 
+		 {"nodeID":2,"label":"B"},
+		 {"nodeID":3,"label":"C"}
+		 ]
+	}
+}
+

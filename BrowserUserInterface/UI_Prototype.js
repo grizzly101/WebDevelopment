@@ -1,7 +1,29 @@
 var json_edges = '{"system_edges":{"edges":[{"edgeID":"1","pn":"3","cn":"4"},{"edgeID":"2","pn":"4","cn":"5"}, {"edgeID":"3","pn":"4","cn":"6"}]}}';
 var json_nodes = '{"system_nodes":{"nodes":[{"nodeID":"3","label":"A"},{"nodeID":"4","label":"B"},{"nodeID":"5","label":"C"},{"nodeID":"6","label":"D"}]}}';
 
-class SelectMenu extends React.Component {
+
+
+class ListBox extends React.Component {
+  render() {
+    return (
+    <ol id="selectable">
+      <li class="ui-widget-content">Item 1</li>
+      <li class="ui-widget-content">Item 2</li>
+      <li class="ui-widget-content">Item 3</li>
+      <li class="ui-widget-content">Item 4</li>
+      <li class="ui-widget-content">Item 5</li>
+      <li class="ui-widget-content">Item 6</li>
+      <li class="ui-widget-content">Item 7</li>
+    </ol>
+    );
+    
+    $( function() {
+    $( "#selectable" ).selectable();
+    } );
+  }
+}
+
+class DropDown extends React.Component {
   render() {
     return (
     <form action="#">
@@ -42,8 +64,8 @@ class EntireUserInterface extends React.Component {
     return (
       <div>
       
-  
-        <SelectMenu />
+      <ListBox/>
+        <DropDown />
       </div>
     );
   }
@@ -84,7 +106,7 @@ class EntireUserInterface extends React.Component {
         // Set some stylesheet options for the visual appearance
 				var style = this.graph.getStylesheet().getDefaultVertexStyle();
 				style[mxConstants.STYLE_SHAPE] = 'treenode';
-				style[mxConstants.STYLE_GRADIENTCOLOR] = 'white';
+				style[mxConstants.STYLE_GRADIENTCOLOR] = 'blue';
 				style[mxConstants.STYLE_SHADOW] = true;
 				
 				style = this.graph.getStylesheet().getDefaultEdgeStyle();

@@ -1,4 +1,5 @@
-
+var json_edges = '{"system_edges":{"edges":[{"edgeID":1,"pn":1,"cn":2},{"edgeID":2,"pn":2,"cn":3}]}}';
+var json_nodes = '{"system_nodes":{"nodes":[{"nodeID":1,"label":"A"},{"nodeID":2,"label":"B"},{"nodeID":3,"label":"C"}]}}';
 
 class SelectMenu extends React.Component {
   render() {
@@ -18,9 +19,6 @@ class SelectMenu extends React.Component {
     );
   }
 }
-
-
-
 
  	
 class EntireUserInterface extends React.Component {
@@ -251,9 +249,17 @@ class EntireUserInterface extends React.Component {
 				this.graph.getModel().beginUpdate();
 				try
 				{
-					var v1 = this.graph.insertVertex(parent, null, 'Hello,', 20, 20, 80, 30);
-					var v2 = this.graph.insertVertex(parent, null, 'World!', 200, 150, 80, 30);
-					var e1 = this.graph.insertEdge(parent, null, '', v1, v2);
+          // tree_edges_obj = JSON.parse(json_edges)
+          var tree_nodes_obj = JSON.parse(json_nodes)
+          var i = 0;
+          for(i=0; i< tree_nodes_obj.system_nodes.nodes.length; i++)
+          {
+              var v1 = this.graph.insertVertex(parent, null, 'Hello,', 20, 20, 80, 30);
+          }
+          
+				//	var v1 = this.graph.insertVertex(parent, null, 'Hello,', 20, 20, 80, 30);
+				//	var v2 = this.graph.insertVertex(parent, null, 'World!', 200, 150, 80, 30);
+					//var e1 = this.graph.insertEdge(parent, null, '', v1, v2);
 				}
 				finally
 				{

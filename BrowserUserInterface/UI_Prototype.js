@@ -5,16 +5,29 @@ var json_nodes = '{"system_nodes":{"nodes":[{"nodeID":"3","label":"A"},{"nodeID"
 
 class ListBox extends React.Component {
   render() {
+    
+    var letterStyle = {
+            backgroundColor: "#ffde00",
+            color: "#333",
+            display: "inline-block",
+            fontFamily: "monospace",
+            fontSize: 32,
+            textAlign: "center",
+            position: "absolute",
+           left: 50,
+            height: 100,
+            width: 200,      
+        };
     return (
-    <ol id="selectable">
-      <li class="ui-widget-content">Item 1</li>
-      <li class="ui-widget-content">Item 2</li>
-      <li class="ui-widget-content">Item 3</li>
-      <li class="ui-widget-content">Item 4</li>
-      <li class="ui-widget-content">Item 5</li>
-      <li class="ui-widget-content">Item 6</li>
-      <li class="ui-widget-content">Item 7</li>
-    </ol>
+      <div> 
+      <select style={letterStyle} name="cars" size="3">
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="fiat">Fiat</option>
+        <option value="audi">Audi</option>
+      </select>
+      </div>
+
     );
     
     $( function() {
@@ -25,8 +38,11 @@ class ListBox extends React.Component {
 
 class DropDown extends React.Component {
   render() {
+    
+  
+    
     return (
-    <form action="#">
+    <form  action="#">
       <fieldset>
         <label for="speed">Select a speed</label>
         <select name="speed" id="speed">
@@ -53,19 +69,32 @@ class EntireUserInterface extends React.Component {
       /**
 				 * Returns the padding for pages in page view with scrollbars.
 				 */
-			
-    
-       this.main(document.getElementById('graphContainer'));
+  this.main(document.getElementById('graphContainer'));
 
   }
   
   
   render() {
+     var listbox = {
+           position:"fixed",
+           bottom: "75%",
+         left: "0%"
+        };
+    
+    var dropdown= {
+           position:"fixed",
+          bottom: "50%",
+         left: "0%"
+        };
     return (
+       
       <div>
-      
-      <ListBox/>
-        <DropDown />
+        <div style={listbox}>
+          <ListBox/>
+        </div>
+        <div style={dropdown}>
+         <DropDown />
+        </div>
       </div>
     );
   }
@@ -357,6 +386,8 @@ class EntireUserInterface extends React.Component {
 
  
 ReactDOM.render(
+  
+  
   <EntireUserInterface />,
   document.getElementById('container')
 

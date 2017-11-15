@@ -1,5 +1,5 @@
-var json_edges = '{"system_edges":{"edges":[{"edgeID":1,"pn":1,"cn":2},{"edgeID":2,"pn":2,"cn":3}]}}';
-var json_nodes = '{"system_nodes":{"nodes":[{"nodeID":1,"label":"A"},{"nodeID":2,"label":"B"},{"nodeID":3,"label":"C"}]}}';
+var json_edges = '{"system_edges":{"edges":[{"edgeID":"1","pn":"3","cn":"4"},{"edgeID":"2","pn":"4","cn":"5"}]}}';
+var json_nodes = '{"system_nodes":{"nodes":[{"nodeID":"3","label":"A"},{"nodeID":"4","label":"B"},{"nodeID":"5","label":"C"}]}}';
 
 class SelectMenu extends React.Component {
   render() {
@@ -249,14 +249,29 @@ class EntireUserInterface extends React.Component {
 				this.graph.getModel().beginUpdate();
 				try
 				{
-          // tree_edges_obj = JSON.parse(json_edges)
+          var tree_edges_obj = JSON.parse(json_edges)
           var tree_nodes_obj = JSON.parse(json_nodes)
           var i = 0;
           for(i=0; i< tree_nodes_obj.system_nodes.nodes.length; i++)
           {
-              var v1 = this.graph.insertVertex(parent, null, 'Hello,', 20, 20, 80, 30);
+              var id = tree_nodes_obj.system_nodes.nodes[i].nodeID;
+              var label =  tree_nodes_obj.system_nodes.nodes[i].label; 
+              
+              var v1 = this.graph.insertVertex(parent, id, label, 20, 20+ (i*80), 80 , 30);
           }
           
+           for(i=0; i< tree_edges_obj.system_edges.edges.length; i++)
+          {
+              var pnID = tree_edges_obj.system_edges.edges[i].pn;
+              var cnID =  tree_edges_obj.system_edges.edges[i].cn; 
+              
+              var pn = this.graph.getModel().getCell(pnID);
+              var cn = this.graph.getModel().getCell(cnID);
+              console.log('pn.id: ' + pn.id);
+              console.log('cn.id: ' + cn.id);
+              var e1 = this.graph.insertEdge(parent, null, '', pn,cn);
+             
+          }
 				//	var v1 = this.graph.insertVertex(parent, null, 'Hello,', 20, 20, 80, 30);
 				//	var v2 = this.graph.insertVertex(parent, null, 'World!', 200, 150, 80, 30);
 					//var e1 = this.graph.insertEdge(parent, null, '', v1, v2);

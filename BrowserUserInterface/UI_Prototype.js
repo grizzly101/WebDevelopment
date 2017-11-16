@@ -350,8 +350,11 @@ class ListBox extends React.Component {
 class DropDown extends React.Component {
   render() {
     
-      
-    var letterStyle = {
+      var labelStyle = {
+            fontSize: 20,            
+        }; 
+    
+    var selectStyle = {
             backgroundColor: "#f5f5f5",
             color: "#000",
        
@@ -362,9 +365,9 @@ class DropDown extends React.Component {
     
     return (
     <form  action="#">
-      <fieldset>
-        <label for="author">Select an Author</label>
-        <select style={letterStyle} name="author" id="author">
+      <fieldset >
+        <label  style={labelStyle} for="author" > Select an Author</label>
+        <select style={selectStyle} name="author" id="author">
             <option selected="selected">Jack London</option>
             <option>Anton Chekhov</option>
             <option >GK Chesterton</option>
@@ -409,7 +412,7 @@ class EntireUserInterface extends React.Component {
            
     
      position:"fixed",
-           bottom: "15%",
+           bottom: "14%",
            left: "0%",
      
         };

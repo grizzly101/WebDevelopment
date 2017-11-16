@@ -7,24 +7,20 @@ class ListBox extends React.Component {
   render() {
     
     var letterStyle = {
-            backgroundColor: "#ffde00",
-            color: "#333",
-            display: "inline-block",
-            fontFamily: "monospace",
-            fontSize: 32,
-            textAlign: "center",
-            position: "absolute",
-           left: 50,
-            height: 100,
-            width: 200,      
+            backgroundColor: "#f5f5f5",
+            color: "#000",
+       
+            fontSize: 28,
+            width:"255px"
+             
         };
     return (
       <div> 
       <select style={letterStyle} name="cars" size="3">
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="fiat">Fiat</option>
-        <option value="audi">Audi</option>
+        <option value="White Fang">White Fang</option>
+        <option value="Call of the Wild">Call of the Wild</option>
+        <option value="Sea Wolf">Sea Wolf</option>
+        <option value="To Build a Fire">To Build a Fire</option>
       </select>
       </div>
 
@@ -44,13 +40,13 @@ class DropDown extends React.Component {
     return (
     <form  action="#">
       <fieldset>
-        <label for="speed">Select a speed</label>
-        <select name="speed" id="speed">
-            <option>Slower</option>
-            <option>Slow</option>
-            <option selected="selected">Medium</option>
-            <option>Fast</option>
-            <option>Faster</option>
+        <label for="author">Select an Author</label>
+        <select name="author" id="author">
+            <option selected="selected">Jack London</option>
+            <option>Anton Chekhov</option>
+            <option >GK Chesterton</option>
+            <option>C.S Lewis</option>
+            <option>J.R.R Tolkien</option>
         </select>
       </fieldset>
     </form>  
@@ -75,21 +71,35 @@ class EntireUserInterface extends React.Component {
   
   
   render() {
-     var listbox = {
+    
+ 
+  
+     var parent = {
            position:"fixed",
-           bottom: "75%",
-         left: "0%"
+           bottom: "60%",
+           left: "1.2%",
+          overflow:"hidden",
+          width:"auto",
+          display:"inline"
+        };
+     var listbox = {
+           float:"bottom",
+    marginBottom:"10px"
         };
     
     var dropdown= {
            position:"fixed",
           bottom: "50%",
-         left: "0%"
+         left: "0%",
+
         };
     return (
        
-      <div>
+      <div style={parent}>
         <div style={listbox}>
+          <ListBox/>
+        </div>
+         <div style={listbox}>
           <ListBox/>
         </div>
         <div style={dropdown}>
@@ -135,7 +145,7 @@ class EntireUserInterface extends React.Component {
         // Set some stylesheet options for the visual appearance
 				var style = this.graph.getStylesheet().getDefaultVertexStyle();
 				style[mxConstants.STYLE_SHAPE] = 'treenode';
-				style[mxConstants.STYLE_GRADIENTCOLOR] = 'blue';
+				style[mxConstants.STYLE_COLOR] = 'blue';
 				style[mxConstants.STYLE_SHADOW] = true;
 				
 				style = this.graph.getStylesheet().getDefaultEdgeStyle();
@@ -343,8 +353,14 @@ class EntireUserInterface extends React.Component {
           {
               var id = tree_nodes_obj.system_nodes.nodes[i].nodeID;
               var label =  tree_nodes_obj.system_nodes.nodes[i].label; 
-              
-              var v1 = this.graph.insertVertex(parent, id, label, 0, 0, 80 , 30);
+              if(i==2 || i == 3)
+                {
+                  var v1 = this.graph.insertVertex(parent, id, label, 0, 0, 80 , 30,'defaultVertex;fillColor=red');
+                }
+            else
+              {
+                var v1 = this.graph.insertVertex(parent, id, label, 0, 0, 80 , 30);
+              }
           }
           
            for(i=0; i< tree_edges_obj.system_edges.edges.length; i++)

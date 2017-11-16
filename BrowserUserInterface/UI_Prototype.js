@@ -2,62 +2,9 @@ var json_edges = '{"system_edges":{"edges":[{"edgeID":"1","pn":"3","cn":"4"},{"e
 var json_nodes = '{"system_nodes":{"nodes":[{"nodeID":"3","label":"A"},{"nodeID":"4","label":"B"},{"nodeID":"5","label":"C"},{"nodeID":"6","label":"D"}]}}';
 
 
-
-class ListBox extends React.Component {
-  render() {
-    
-    var letterStyle = {
-            backgroundColor: "#f5f5f5",
-            color: "#000",
-       
-            fontSize: 28,
-            width:"255px"
-             
-        };
-    return (
-      <div> 
-      <select style={letterStyle} name="cars" size="3">
-        <option value="White Fang">White Fang</option>
-        <option value="Call of the Wild">Call of the Wild</option>
-        <option value="Sea Wolf">Sea Wolf</option>
-        <option value="To Build a Fire">To Build a Fire</option>
-      </select>
-      </div>
-
-    );
-    
-    $( function() {
-    $( "#selectable" ).selectable();
-    } );
-  }
-}
-
-class DropDown extends React.Component {
-  render() {
-    
-  
-    
-    return (
-    <form  action="#">
-      <fieldset>
-        <label for="author">Select an Author</label>
-        <select name="author" id="author">
-            <option selected="selected">Jack London</option>
-            <option>Anton Chekhov</option>
-            <option >GK Chesterton</option>
-            <option>C.S Lewis</option>
-            <option>J.R.R Tolkien</option>
-        </select>
-      </fieldset>
-    </form>  
-    );
-  }
-}
-
- 	
-class EntireUserInterface extends React.Component {
-  
-  constructor(props){
+class Canvas extends React.Component {
+ 
+   constructor(props){
     super(props);
     
     this.graph = new mxGraph(container);
@@ -72,50 +19,17 @@ class EntireUserInterface extends React.Component {
   
   render() {
     
- 
-  
-     var parent = {
-           position:"fixed",
-           bottom: "60%",
-           left: "1.2%",
-          overflow:"hidden",
-          width:"auto",
-          display:"inline"
-        };
-     var listbox = {
-           float:"bottom",
-    marginBottom:"10px"
-        };
-    
-    var dropdown= {
-           position:"fixed",
-          bottom: "50%",
-         left: "0%",
-
-        };
+   
     return (
-       
-      <div style={parent}>
-        <div style={listbox}>
-          <ListBox/>
-        </div>
-         <div style={listbox}>
-          <ListBox/>
-        </div>
-        <div style={dropdown}>
-         <DropDown />
-        </div>
+      <div> 
+      
       </div>
+
     );
+    
   }
   
-   /**
-				 * Returns the padding for pages in page view with scrollbars.
-				 */
-		
-  
-  
-  	main(container)
+  main(container)
 		{
 			// Checks if the browser is supported
 			if (!mxClient.isBrowserSupported())
@@ -397,6 +311,138 @@ class EntireUserInterface extends React.Component {
 				}.bind(this), 0);
 		}//main
   
+}
+
+class ListBox extends React.Component {
+  render() {
+    
+    var letterStyle = {
+            backgroundColor: "#f5f5f5",
+            color: "#000",
+       
+            fontSize: 28,
+            width:"255px"
+             
+        };
+    return (
+      <div> 
+      <select style={letterStyle} name="cars" size="10">
+        <option value="White Fang">White Fang</option>
+        <option value="Call of the Wild">Call of the Wild</option>
+        <option value="Sea Wolf">Sea Wolf</option>
+        <option value="To Build a Fire">To Build a Fire</option>
+      </select>
+      </div>
+
+    );
+    
+    $( function() {
+    $( "#selectable" ).selectable();
+    } );
+  }
+}
+
+class DropDown extends React.Component {
+  render() {
+    
+      
+    var letterStyle = {
+            backgroundColor: "#f5f5f5",
+            color: "#000",
+       
+            fontSize: 28,
+            width:"255px"
+             
+        };
+    
+    return (
+    <form  action="#">
+      <fieldset>
+        <label for="author">Select an Author</label>
+        <select style={letterStyle} name="author" id="author">
+            <option selected="selected">Jack London</option>
+            <option>Anton Chekhov</option>
+            <option >GK Chesterton</option>
+            <option>C.S Lewis</option>
+            <option>J.R.R Tolkien</option>
+        </select>
+      </fieldset>
+    </form>  
+    );
+  }
+}
+
+ 	
+class EntireUserInterface extends React.Component {
+  
+  constructor(props){
+    super(props);
+    
+   
+
+  }
+  
+  
+  render() {
+    
+ 
+  
+     var parent = {
+           position:"fixed",
+           bottom: "20%",
+           left: "1%",
+          overflow:"hidden",
+          width:"auto",
+          display:"inline"
+        };
+     var listbox = {
+           float:"bottom",
+    marginBottom:"10px"
+        };
+    
+    var dropdown= {
+           
+    
+     position:"fixed",
+           bottom: "15%",
+           left: "0%",
+     
+        };
+    
+   /* var canvas = {
+      position:"fixed",
+      //overflow:"auto",
+      //marginRight: "200px",
+      bottom:"30%",
+      right:"25%",
+      width:"600px",
+      height:"600px",
+     //background:"url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Graph-paper.svg/600px-Graph-paper.svg.png')",
+      //cursor:"default"
+    }*/
+    return (
+       
+      <div style={parent}>
+        <div>
+          <Canvas />
+        </div>
+        <div style={listbox}>
+          <ListBox/>
+        </div>
+         <div style={listbox}>
+          <ListBox/>
+        </div>
+        <div style={dropdown}>
+         <DropDown />
+        </div>
+        
+      </div>
+    );
+  }
+  
+   /**
+				 * Returns the padding for pages in page view with scrollbars.
+				 */  
 }
 
 

@@ -61,10 +61,15 @@ class Canvas extends React.Component {
 				style[mxConstants.STYLE_SHAPE] = 'treenode';
 				style[mxConstants.STYLE_COLOR] = 'blue';
 				style[mxConstants.STYLE_SHADOW] = true;
-				
+				style[mxConstants.STYLE_FONTSIZE] = 48;
+        style[mxConstants.STYLE_FONTCOLOR] = 'black';
 				style = this.graph.getStylesheet().getDefaultEdgeStyle();
 				style[mxConstants.STYLE_EDGE] = mxEdgeStyle.TopToBottom;
+        
 				style[mxConstants.STYLE_ROUNDED] = true;
+        // Controls Edge Width
+        style[mxConstants.STYLE_STROKEWIDTH] = 5;
+        var stylee = this.graph.getStylesheet().getDefaultEdgeStyle();
         
         /**
 				 * Specifies the size of the size for "tiles" to be used for a graph with
@@ -269,11 +274,11 @@ class Canvas extends React.Component {
               var label =  tree_nodes_obj.system_nodes.nodes[i].label; 
               if(i==2 || i == 3)
                 {
-                  var v1 = this.graph.insertVertex(parent, id, label, 0, 0, 80 , 30,'defaultVertex;fillColor=red');
+                  var v1 = this.graph.insertVertex(parent, id, label, 0, 0, 200 , 100,'defaultVertex;fillColor=red');
                 }
             else
               {
-                var v1 = this.graph.insertVertex(parent, id, label, 0, 0, 80 , 30);
+                var v1 = this.graph.insertVertex(parent, id, label, 0, 0, 200 , 100);
               }
           }
           

@@ -1,5 +1,15 @@
-var json_edges = '{"system_edges":{"edges":[{"edgeID":"1","pn":"3","cn":"4"},{"edgeID":"2","pn":"4","cn":"5"}, {"edgeID":"3","pn":"4","cn":"6"}]}}';
-var json_nodes = '{"system_nodes":{"nodes":[{"nodeID":"3","label":"A"},{"nodeID":"4","label":"B"},{"nodeID":"5","label":"C"},{"nodeID":"6","label":"D"}]}}';
+var json_edges = '{"system_edges":{"edges":[{"edgeID":"28","pn":"2","cn":"3"},{"edgeID":"29","pn":"2","cn":"4"},{"edgeID":"3","pn":"2","cn":"7"},{"edgeID":"4","pn":"2","cn":"8"},{"edgeID":"1","pn":"3","cn":"5"},{"edgeID":"2","pn":"4","cn":"6"},{"edgeID":"9","pn":"7","cn":"13"},{"edgeID":"10","pn":"8","cn":"14"},{"edgeID":"5","pn":"5","cn":"9"},{"edgeID":"6","pn":"5","cn":"10"},{"edgeID":"7","pn":"5","cn":"11"},{"edgeID":"8","pn":"6","cn":"12"},{"edgeID":"18","pn":"16","cn":"17"},{"edgeID":"15","pn":"13","cn":"15"},{"edgeID":"16","pn":"14","cn":"15"},{"edgeID":"14","pn":"12","cn":"15"}, {"edgeID":"13","pn":"11","cn":"15"},{"edgeID":"12","pn":"10","cn":"15"},{"edgeID":"11","pn":"9","cn":"15"},{"edgeID":"17","pn":"15","cn":"16"} ]}}';
+
+
+//'{"system_edges":{"edges":[{"edgeID":"1","pn":"3","cn":"5"},{"edgeID":"2","pn":"4","cn":"6"},{"edgeID":"3","pn":"24","cn":"7"},{"edgeID":"4","pn":"2","cn":"8"},{"edgeID":"5","pn":"5","cn":"9"},{"edgeID":"6","pn":"5","cn":"10"},{"edgeID":"7","pn":"5","cn":"11"},{"edgeID":"8","pn":"6","cn":"12"},{"edgeID":"9","pn":"7","cn":"13"},{"edgeID":"10","pn":"8","cn":"14"},{"edgeID":"11","pn":"9","cn":"15"},{"edgeID":"12","pn":"10","cn":"15"},{"edgeID":"13","pn":"11","cn":"15"},{"edgeID":"14","pn":"12","cn":"15"},{"edgeID":"15","pn":"13","cn":"15"},{"edgeID":"16","pn":"14","cn":"15"},{"edgeID":"17","pn":"15","cn":"16"},{"edgeID":"18","pn":"16","cn":"17"}]}}';
+
+
+
+var json_nodes = '{"system_nodes":{"nodes":[{"nodeID":"2","label":"V","parent":"2"},{"nodeID":"3","label":"A","parent":"2"},{"nodeID":"4","label":"B","parent":"2"},{"nodeID":"7","label":"E","parent":"2"},{"nodeID":"8","label":"F","parent":"2"},{"nodeID":"5","label":"C","parent":"1"},{"nodeID":"6","label":"D","parent":"4"}, {"nodeID":"13","label":"K","parent":"7"},{"nodeID":"14","label":"L","parent":"8"},{"nodeID":"9","label":"G","parent":"5"},{"nodeID":"10","label":"H","parent":"5"},{"nodeID":"11","label":"I","parent":"5"},{"nodeID":"12","label":"J","parent":"6"},{"nodeID":"15","label":"M","parent":"12"},{"nodeID":"16","label":"N","parent":"15"},{"nodeID":"17","label":"O","parent":"16"} ]}}';
+
+//'{"system_nodes":{"nodes":[{"nodeID":"2","label":"V"},{"nodeID":"3","label":"A"},{"nodeID":"4","label":"B"},{"nodeID":"5","label":"C"},{"nodeID":"6","label":"D"},{"nodeID":"7","label":"E"},{"nodeID":"8","label":"F"},{"nodeID":"9","label":"G"},{"nodeID":"10","label":"H"},{"nodeID":"11","label":"I"},{"nodeID":"12","label":"J"},{"nodeID":"13","label":"K"},{"nodeID":"14","label":"L"},{"nodeID":"15","label":"M"},{"nodeID":"16","label":"N"},{"nodeID":"17","label":"O"}]}}';
+//{"nodeID":"18","label":"P"},{"nodeID":"19","label":"Q"},{"nodeID":"20","label":"R"},{"nodeID":"21","label":"S"},{"nodeID":"22","label":"T"},{"nodeID":"23","label":"U"},
+
 
 
 class Canvas extends React.Component {
@@ -49,29 +59,14 @@ class Canvas extends React.Component {
 				this.graph.keepEdgesInBackground = true;
         
         // If the mouse is over a cell object (node or edge) disable panning
-				this.graph.panningHandler.ignoreCell = false;
-				this.graph.setPanning(true);
+		//		this.graph.panningHandler.ignoreCell = false;
+			//	this.graph.setPanning(true);
         	// Enables automatic sizing for vertices after editing and
 				// panning by using the left mouse button.
-				this.graph.setAutoSizeCells(true);
-				this.graph.panningHandler.useLeftButtonForPanning = true;
+		//		this.graph.setAutoSizeCells(true);
+		//		this.graph.panningHandler.useLeftButtonForPanning = true;
         
-        // Set some stylesheet options for the visual appearance
-				var style = this.graph.getStylesheet().getDefaultVertexStyle();
-				style[mxConstants.STYLE_SHAPE] = 'treenode';
-				style[mxConstants.STYLE_COLOR] = 'blue';
-				style[mxConstants.STYLE_SHADOW] = true;
-				style[mxConstants.STYLE_FONTSIZE] = 48;
-        style[mxConstants.STYLE_FONTCOLOR] = 'black';
-				style = this.graph.getStylesheet().getDefaultEdgeStyle();
-				style[mxConstants.STYLE_EDGE] = mxEdgeStyle.TopToBottom;
-        
-				style[mxConstants.STYLE_ROUNDED] = true;
-        // Controls Edge Width
-        style[mxConstants.STYLE_STROKEWIDTH] = 5;
-        var stylee = this.graph.getStylesheet().getDefaultEdgeStyle();
-        
-        /**
+           /**
 				 * Specifies the size of the size for "tiles" to be used for a graph with
 				 * scrollbars but no visible background page. A good value is large
 				 * enough to reduce the number of repaints that is caused for auto-
@@ -79,28 +74,58 @@ class Canvas extends React.Component {
 				 * a small empty buffer around the graph. Default is 400x400.
 				 */
 				this.graph.scrollTileSize = new mxRectangle(0, 0,10, 10);
+      
+        // Set some stylesheet options for the visual appearance
+				var style = this.graph.getStylesheet().getDefaultVertexStyle();
+				style[mxConstants.STYLE_SHAPE] = 'treenode';
+				style[mxConstants.STYLE_COLOR] = 'blue';
+				style[mxConstants.STYLE_SHADOW] = true;
+				style[mxConstants.STYLE_FONTSIZE] = 24;
+        style[mxConstants.STYLE_FONTCOLOR] = 'black';
+				style = this.graph.getStylesheet().getDefaultEdgeStyle();
+			//	style[mxConstants.STYLE_EDGE] = mxEdgeStyle.TopToBottom;
+      // style[mxConstants.STYLE_EDGE] = mxEdgeStyle.SideToSide;
+       style[mxConstants.STYLE_EDGE] = mxEdgeStyle.ElbowConnector;
+     //  style[mxConstants.STYLE_EDGE] = mxEdgeStyle.SegmentConnector;
+			//	style[mxConstants.STYLE_EDGE] = mxEdgeStyle.OrthConnector;
+        style[mxConstants.STYLE_ROUNDED] = true;
+        // Controls Edge Width
+        style[mxConstants.STYLE_STROKEWIDTH] = 5;
+       
         
-       // Enables automatic layout on the graph and installs
+        // Enables automatic sizing for vertices after editing and
+				// panning by using the left mouse button.
+			//	this.graph.setAutoSizeCells(true);
+			//	this.graph.setPanning(true);
+			//	this.graph.panningHandler.useLeftButtonForPanning = true;
+          // Enables automatic layout on the graph and installs
 				// a tree layout for all groups who's children are
 				// being changed, added or removed.
-				var layout = new  mxCompactTreeLayout(this.graph, false);
+        //	var layout = new  mxCompactTreeLayout(this.graph, false);
+        var layout = new  mxCompactTreeLayout(this.graph, false);
 				layout.useBoundingBox = false;
-				layout.edgeRouting = true;
-				layout.levelDistance = 10;
+				layout.edgeRouting = false;
+				layout.levelDistance = 30;
 				layout.nodeDistance = 50;
 				layout.horizontal = true;
 				
+// Enables connect preview for the default edge style
+     
 
-				var layoutMgr = new mxLayoutManager(this.graph);
-        layoutMgr.getLayout = function(cell)
+/*				var layoutMgr = new mxLayoutManager(this.graph);
+       layoutMgr.getLayout = function(cell)
 				{
 					if (cell.getChildCount() > 0)
-					{
+				{
 						return layout;
 					}
 				};
         
-        layout.execute(this.graph.getDefaultParent());
+        layout.execute(this.graph.getDefaultParent());   
+*/        
+     
+        // Disallow any selections
+				this.graph.setCellsSelectable(false);
         /**
 				 * Returns the size of the page format scaled with the page size.
 				 */
@@ -268,18 +293,18 @@ class Canvas extends React.Component {
           var tree_edges_obj = JSON.parse(json_edges)
           var tree_nodes_obj = JSON.parse(json_nodes)
           var i = 0;
+          
+         
+         
           for(i=0; i< tree_nodes_obj.system_nodes.nodes.length; i++)
           {
               var id = tree_nodes_obj.system_nodes.nodes[i].nodeID;
               var label =  tree_nodes_obj.system_nodes.nodes[i].label; 
-              if(i==2 || i == 3)
-                {
-                  var v1 = this.graph.insertVertex(parent, id, label, 0, 0, 200 , 100,'defaultVertex;fillColor=red');
-                }
-            else
-              {
-                var v1 = this.graph.insertVertex(parent, id, label, 0, 0, 200 , 100);
-              }
+            // var parentID =  tree_nodes_obj.system_nodes.nodes[i].parent;
+           // var parentNode = this.graph.getModel().getCell(parentID); 
+           
+             var v1 = this.graph.insertVertex(parent, id, label, 0, 0, 100 , 50);
+              
           }
           
            for(i=0; i< tree_edges_obj.system_edges.edges.length; i++)
@@ -291,10 +316,76 @@ class Canvas extends React.Component {
               var pn = this.graph.getModel().getCell(pnID);
               var cn = this.graph.getModel().getCell(cnID);
               //console.log('pn.id: ' + pn.id);
-             // console.log('cn.id: ' + cn.id);
-              var e1 = this.graph.insertEdge(parent, null, '', pn,cn);
+              console.log(pn.id + " " + cn.id);
+             var e1 = this.graph.insertEdge(parent, null, '', pn,cn);
              
           }
+        
+          // This block of code positions all the nodes
+          var origin = this.graph.insertVertex(parent, id, label, 0, 0, 100 , 50); 
+         
+          var ox =  origin.geometry.x;
+          var oy = origin.geometry.y;
+           
+          var r = this.graph.getModel().getCell(16);
+          r.geometry.x = ox - 250;
+          r.geometry.y = oy;
+         
+         
+          var r = this.graph.getModel().getCell(15);
+          r.geometry.x = ox - 500;
+          r.geometry.y = oy;
+          
+          var r = this.graph.getModel().getCell(9);
+          r.geometry.x = ox - 750;
+          r.geometry.y = oy-500;
+          
+          var r = this.graph.getModel().getCell(10);
+          r.geometry.x = ox - 750;
+          r.geometry.y = oy-300;
+          
+          var r = this.graph.getModel().getCell(11);
+           r.geometry.x = ox - 750;
+          r.geometry.y = oy-200;
+           var r = this.graph.getModel().getCell(12);
+          r.geometry.x = ox - 750;
+          r.geometry.y = oy-100;
+          
+            var r = this.graph.getModel().getCell(13);
+          r.geometry.x = ox - 750;
+          r.geometry.y = oy+100;
+          
+             var r = this.graph.getModel().getCell(14);
+          r.geometry.x = ox - 750;
+          r.geometry.y = oy+250;
+          
+          var r = this.graph.getModel().getCell(5);
+          r.geometry.x = ox - 1000;
+          r.geometry.y = oy-500;
+          
+           var r = this.graph.getModel().getCell(6);
+          r.geometry.x = ox - 1000;
+          r.geometry.y = oy-250;
+          
+          var r = this.graph.getModel().getCell(7);
+          r.geometry.x = ox - 1000;
+          r.geometry.y = oy+0;
+          
+           var r = this.graph.getModel().getCell(8);
+          r.geometry.x = ox - 1000;
+          r.geometry.y = oy+250;
+          
+           var r = this.graph.getModel().getCell(3);
+          r.geometry.x = ox - 1250;
+          r.geometry.y = oy-500;
+          
+           var r = this.graph.getModel().getCell(4);
+          r.geometry.x = ox - 1250;
+          r.geometry.y = oy-300;
+          
+           var r = this.graph.getModel().getCell(2);
+          r.geometry.x = ox - 1500;
+          r.geometry.y = oy-500;
 
 				}
 				finally

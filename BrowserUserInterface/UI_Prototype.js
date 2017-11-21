@@ -315,8 +315,7 @@ class Canvas extends React.Component {
               
               var pn = this.graph.getModel().getCell(pnID);
               var cn = this.graph.getModel().getCell(cnID);
-              //console.log('pn.id: ' + pn.id);
-              console.log(pn.id + " " + cn.id);
+             
              var e1 = this.graph.insertEdge(parent, null, '', pn,cn);
              
           }
@@ -387,12 +386,21 @@ class Canvas extends React.Component {
           r.geometry.x = ox - 1500;
           r.geometry.y = oy-500;
 
+          // Add control point to Edge connecting 2 and 8
+          var test = this.graph.getModel().getCell(21);
+          test.getGeometry().points = [new mxPoint(ox-1400,oy)]    
+          
+          // Add control point to Edge connecting 2 and 7
+          var test = this.graph.getModel().getCell(20);
+          test.getGeometry().points = [new mxPoint(ox-1400,oy-500)]  
 				}
 				finally
 				{
 					// Updates the display
 					this.graph.getModel().endUpdate();
 				}
+        
+         
 			}
       
       /* Use bind(this) to bind the main EntireUserInterface object with the new object function or functor, which is being passed to setTimeout, allowing the 'this' keyword to refer to the EntireUserInterface object.*/

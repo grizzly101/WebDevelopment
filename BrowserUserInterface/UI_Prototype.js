@@ -1,11 +1,11 @@
-var json_edges = '{"system_edges":{"edges":[{"edgeID":"28","pn":"2","cn":"3"},{"edgeID":"29","pn":"2","cn":"4"},{"edgeID":"3","pn":"2","cn":"7"},{"edgeID":"4","pn":"2","cn":"8"},{"edgeID":"1","pn":"3","cn":"5"},{"edgeID":"2","pn":"4","cn":"6"},{"edgeID":"9","pn":"7","cn":"13"},{"edgeID":"10","pn":"8","cn":"14"},{"edgeID":"5","pn":"5","cn":"9"},{"edgeID":"6","pn":"5","cn":"10"},{"edgeID":"7","pn":"5","cn":"11"},{"edgeID":"8","pn":"6","cn":"12"},{"edgeID":"18","pn":"16","cn":"17"},{"edgeID":"15","pn":"13","cn":"15"},{"edgeID":"16","pn":"14","cn":"15"},{"edgeID":"14","pn":"12","cn":"15"}, {"edgeID":"13","pn":"11","cn":"15"},{"edgeID":"12","pn":"10","cn":"15"},{"edgeID":"11","pn":"9","cn":"15"},{"edgeID":"17","pn":"15","cn":"16"} ]}}';
+var json_edges = '{"system_edges":{"edges":[{"pn":"2","cn":"3"},{"pn":"2","cn":"4"},{"pn":"2","cn":"7"},{"pn":"2","cn":"8"},{"pn":"3","cn":"5"},{"pn":"4","cn":"6"},{"pn":"7","cn":"13"},{"pn":"8","cn":"14"},{"pn":"5","cn":"9"},{"pn":"5","cn":"10"},{"pn":"5","cn":"11"},{"pn":"6","cn":"12"},{"pn":"16","cn":"17"},{"pn":"13","cn":"15"},{"pn":"14","cn":"15"},{"pn":"12","cn":"15"}, {"pn":"11","cn":"15"},{"pn":"10","cn":"15"},{"pn":"9","cn":"15"},{"pn":"15","cn":"16"},{"pn":"3","cn":"18"},{"pn":"32","cn":"20"},{"pn":"32","cn":"19"}, {"pn":"15","cn":"21"},{"pn":"21","cn":"22"},{"pn":"17","cn":"32"},{"pn":"22","cn":"24"},{"pn":"19","cn":"24"},{"pn":"20","cn":"24"},{"pn":"18","cn":"24"}]}}';
 
 
-//'{"system_edges":{"edges":[{"edgeID":"1","pn":"3","cn":"5"},{"edgeID":"2","pn":"4","cn":"6"},{"edgeID":"3","pn":"24","cn":"7"},{"edgeID":"4","pn":"2","cn":"8"},{"edgeID":"5","pn":"5","cn":"9"},{"edgeID":"6","pn":"5","cn":"10"},{"edgeID":"7","pn":"5","cn":"11"},{"edgeID":"8","pn":"6","cn":"12"},{"edgeID":"9","pn":"7","cn":"13"},{"edgeID":"10","pn":"8","cn":"14"},{"edgeID":"11","pn":"9","cn":"15"},{"edgeID":"12","pn":"10","cn":"15"},{"edgeID":"13","pn":"11","cn":"15"},{"edgeID":"14","pn":"12","cn":"15"},{"edgeID":"15","pn":"13","cn":"15"},{"edgeID":"16","pn":"14","cn":"15"},{"edgeID":"17","pn":"15","cn":"16"},{"edgeID":"18","pn":"16","cn":"17"}]}}';
+//{"system_edges":{"edges":[{"edgeID":"28","pn":"2","cn":"3"},{"edgeID":"29","pn":"2","cn":"4"},{"edgeID":"3","pn":"2","cn":"7"},{"edgeID":"4","pn":"2","cn":"8"},{"edgeID":"1","pn":"3","cn":"5"},{"edgeID":"2","pn":"4","cn":"6"},{"edgeID":"9","pn":"7","cn":"13"},{"edgeID":"10","pn":"8","cn":"14"},{"edgeID":"5","pn":"5","cn":"9"},{"edgeID":"6","pn":"5","cn":"10"},{"edgeID":"7","pn":"5","cn":"11"},{"edgeID":"8","pn":"6","cn":"12"},{"edgeID":"18","pn":"16","cn":"17"},{"edgeID":"15","pn":"13","cn":"15"},{"edgeID":"16","pn":"14","cn":"15"},{"edgeID":"14","pn":"12","cn":"15"}, {"edgeID":"13","pn":"11","cn":"15"},{"edgeID":"12","pn":"10","cn":"15"},{"edgeID":"11","pn":"9","cn":"15"},{"edgeID":"17","pn":"15","cn":"16"} ]}}';
 
 
 
-var json_nodes = '{"system_nodes":{"nodes":[{"nodeID":"2","label":"V","parent":"2"},{"nodeID":"3","label":"A","parent":"2"},{"nodeID":"4","label":"B","parent":"2"},{"nodeID":"7","label":"E","parent":"2"},{"nodeID":"8","label":"F","parent":"2"},{"nodeID":"5","label":"C","parent":"1"},{"nodeID":"6","label":"D","parent":"4"}, {"nodeID":"13","label":"K","parent":"7"},{"nodeID":"14","label":"L","parent":"8"},{"nodeID":"9","label":"G","parent":"5"},{"nodeID":"10","label":"H","parent":"5"},{"nodeID":"11","label":"I","parent":"5"},{"nodeID":"12","label":"J","parent":"6"},{"nodeID":"15","label":"M","parent":"12"},{"nodeID":"16","label":"N","parent":"15"},{"nodeID":"17","label":"O","parent":"16"} ]}}';
+var json_nodes = '{"system_nodes":{"nodes":[{"nodeID":"2","label":"V"},{"nodeID":"3","label":"A"},{"nodeID":"4","label":"B"},{"nodeID":"7","label":"E"},{"nodeID":"8","label":"F"},{"nodeID":"5","label":"C"},{"nodeID":"6","label":"D"}, {"nodeID":"13","label":"K"},{"nodeID":"14","label":"L"},{"nodeID":"9","label":"G"},{"nodeID":"10","label":"H"},{"nodeID":"11","label":"I"},{"nodeID":"12","label":"J"},{"nodeID":"15","label":"M"},{"nodeID":"16","label":"N"},{"nodeID":"17","label":"O"}, {"nodeID":"18","label":"P"}, {"nodeID":"32","label":"AF"},{"nodeID":"19","label":"Q"},{"nodeID":"20","label":"R"},{"nodeID":"21","label":"S"},{"nodeID":"22","label":"W"},{"nodeID":"24","label":"T"} ]}}';
 
 //'{"system_nodes":{"nodes":[{"nodeID":"2","label":"V"},{"nodeID":"3","label":"A"},{"nodeID":"4","label":"B"},{"nodeID":"5","label":"C"},{"nodeID":"6","label":"D"},{"nodeID":"7","label":"E"},{"nodeID":"8","label":"F"},{"nodeID":"9","label":"G"},{"nodeID":"10","label":"H"},{"nodeID":"11","label":"I"},{"nodeID":"12","label":"J"},{"nodeID":"13","label":"K"},{"nodeID":"14","label":"L"},{"nodeID":"15","label":"M"},{"nodeID":"16","label":"N"},{"nodeID":"17","label":"O"}]}}';
 //{"nodeID":"18","label":"P"},{"nodeID":"19","label":"Q"},{"nodeID":"20","label":"R"},{"nodeID":"21","label":"S"},{"nodeID":"22","label":"T"},{"nodeID":"23","label":"U"},
@@ -302,9 +302,17 @@ class Canvas extends React.Component {
               var label =  tree_nodes_obj.system_nodes.nodes[i].label; 
             // var parentID =  tree_nodes_obj.system_nodes.nodes[i].parent;
            // var parentNode = this.graph.getModel().getCell(parentID); 
-           
-             var v1 = this.graph.insertVertex(parent, id, label, 0, 0, 100 , 50);
-              
+            if(label == "O")
+              {
+                var origin = this.graph.insertVertex(parent, id, label, 0, 0, 100 , 50); 
+         
+                 var ox =  origin.geometry.x;
+                 var oy = origin.geometry.y;
+              }
+            else
+              {
+               var v1 = this.graph.insertVertex(parent, id, label, 0, 100, 100 , 50);
+              }
           }
           
            for(i=0; i< tree_edges_obj.system_edges.edges.length; i++)
@@ -321,11 +329,7 @@ class Canvas extends React.Component {
           }
         
           // This block of code positions all the nodes
-          var origin = this.graph.insertVertex(parent, id, label, 0, 0, 100 , 50); 
-         
-          var ox =  origin.geometry.x;
-          var oy = origin.geometry.y;
-           
+          
           var r = this.graph.getModel().getCell(16);
           r.geometry.x = ox - 250;
           r.geometry.y = oy;
@@ -386,13 +390,42 @@ class Canvas extends React.Component {
           r.geometry.x = ox - 1500;
           r.geometry.y = oy-500;
 
-          // Add control point to Edge connecting 2 and 8
-          var test = this.graph.getModel().getCell(21);
-          test.getGeometry().points = [new mxPoint(ox-1400,oy)]    
+            var r = this.graph.getModel().getCell(32);
+          r.geometry.x = ox+250;
+          r.geometry.y = oy-20;
+          r.geometry.scale(1,10);
           
-          // Add control point to Edge connecting 2 and 7
-          var test = this.graph.getModel().getCell(20);
-          test.getGeometry().points = [new mxPoint(ox-1400,oy-500)]  
+            var r = this.graph.getModel().getCell(18);
+          r.geometry.x = ox+500;
+          r.geometry.y = oy-250;
+          
+           var r = this.graph.getModel().getCell(20);
+          r.geometry.x = ox+500;
+          r.geometry.y = oy;
+          
+           var r = this.graph.getModel().getCell(19);
+          r.geometry.x = ox+500;
+          r.geometry.y = oy-150;
+          
+            var r = this.graph.getModel().getCell(21);
+          r.geometry.x = ox+500;
+          r.geometry.y = oy+150;
+          
+            var r = this.graph.getModel().getCell(22);
+          r.geometry.x = ox+750;
+          r.geometry.y = oy+150;
+          
+          var r = this.graph.getModel().getCell(24);
+          r.geometry.x = ox+1000;
+          r.geometry.y = oy;
+          
+          // Add control point to Edge connecting ? and ?
+        //  var test = this.graph.getModel().getCell(21);
+        //  test.getGeometry().points = [new mxPoint(ox-1400,oy)]    
+          
+          // Add control point to Edge connecting ? and ?
+        //  var test = this.graph.getModel().getCell(20);
+        //  test.getGeometry().points = [new mxPoint(ox-1500,oy-500)]  
 				}
 				finally
 				{

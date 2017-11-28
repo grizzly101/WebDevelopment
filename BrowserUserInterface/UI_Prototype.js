@@ -456,15 +456,26 @@ class Canvas extends React.Component {
           // Add control point to Edge connecting ? and ?
           //V to E
           var ctrlPt = this.graph.getModel().getCell(36);
-          ctrlPt.getGeometry().points = [new mxPoint(ox-1400,oy)]    
+          ctrlPt.getGeometry().points = [new mxPoint(ox-1400,oy-100)]    
           
           //V to F
           ctrlPt = this.graph.getModel().getCell(37);
           ctrlPt.getGeometry().points = [new mxPoint(ox-1400,oy)]  
           
+          var ctrlPts = this.graph.getModel().getCell(54);
+          ctrlPts.getGeometry().points = [new mxPoint(ox+550,oy-550)] 
+          
+          //D to J
+          var ctrlPts = this.graph.getModel().getCell(45);
+          ctrlPts.getGeometry().points = [new mxPoint(ox-950,oy-150)] 
+          
           //U to S
           var ctrlPts = this.graph.getModel().getCell(74);
           ctrlPts.getGeometry().points = [new mxPoint(ox+550,oy+500)] 
+          
+          //AF to AE
+          var ctrlPts = this.graph.getModel().getCell(73);
+          ctrlPts.getGeometry().points = [new mxPoint(ox+550,oy+550)] 
           // Add control point to Edge connecting ? and ?
         //  var test = this.graph.getModel().getCell(20);
         //  test.getGeometry().points = [new mxPoint(ox-1500,oy-500)]  

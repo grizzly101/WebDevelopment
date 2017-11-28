@@ -4,8 +4,7 @@ var json_edges = '{"system_edges":{"edges":[{"pn":"2","cn":"3"},{"pn":"2","cn":"
 
 var json_nodes = '{"system_nodes":{"nodes":[{"nodeID":"2","label":"V"},{"nodeID":"3","label":"A"},{"nodeID":"4","label":"B"},{"nodeID":"7","label":"E"},{"nodeID":"8","label":"F"},{"nodeID":"5","label":"C"},{"nodeID":"6","label":"D"}, {"nodeID":"13","label":"K"},{"nodeID":"14","label":"L"},{"nodeID":"9","label":"G"},{"nodeID":"10","label":"H"},{"nodeID":"11","label":"I"},{"nodeID":"12","label":"J"},{"nodeID":"15","label":"M"},{"nodeID":"16","label":"N"},{"nodeID":"17","label":"O"}, {"nodeID":"18","label":"P"}, {"nodeID":"32","label":"AF"},{"nodeID":"19","label":"Q"},{"nodeID":"20","label":"R"},{"nodeID":"21","label":"S"},{"nodeID":"22","label":"W"},{"nodeID":"24","label":"T"},{"nodeID":"25","label":"Y"},{"nodeID":"26","label":"X"},{"nodeID":"27","label":"Z"},{"nodeID":"28","label":"AA"},{"nodeID":"29","label":"AB"},{"nodeID":"30","label":"AC"},{"nodeID":"31","label":"AD"},{"nodeID":"33","label":"AE"},{"nodeID":"23","label":"U"}     ]}}';
 
-//'{"system_nodes":{"nodes":[{"nodeID":"2","label":"V"},{"nodeID":"3","label":"A"},{"nodeID":"4","label":"B"},{"nodeID":"5","label":"C"},{"nodeID":"6","label":"D"},{"nodeID":"7","label":"E"},{"nodeID":"8","label":"F"},{"nodeID":"9","label":"G"},{"nodeID":"10","label":"H"},{"nodeID":"11","label":"I"},{"nodeID":"12","label":"J"},{"nodeID":"13","label":"K"},{"nodeID":"14","label":"L"},{"nodeID":"15","label":"M"},{"nodeID":"16","label":"N"},{"nodeID":"17","label":"O"}]}}';
-//{"nodeID":"18","label":"P"},{"nodeID":"19","label":"Q"},{"nodeID":"20","label":"R"},{"nodeID":"21","label":"S"},{"nodeID":"22","label":"T"},{"nodeID":"23","label":"U"},
+
 
 
 
@@ -56,8 +55,8 @@ class Canvas extends React.Component {
 				this.graph.keepEdgesInBackground = true;
         
         // If the mouse is over a cell object (node or edge) disable panning
-		//		this.graph.panningHandler.ignoreCell = false;
-			//	this.graph.setPanning(true);
+				this.graph.panningHandler.ignoreCell = true; //Users can't edit graph
+				this.graph.setPanning(true);
         	// Enables automatic sizing for vertices after editing and
 				// panning by using the left mouse button.
 		//		this.graph.setAutoSizeCells(true);
@@ -462,12 +461,17 @@ class Canvas extends React.Component {
           ctrlPt = this.graph.getModel().getCell(37);
           ctrlPt.getGeometry().points = [new mxPoint(ox-1400,oy)]  
           
+          //A to P
           var ctrlPts = this.graph.getModel().getCell(54);
           ctrlPts.getGeometry().points = [new mxPoint(ox+550,oy-550)] 
           
           //D to J
           var ctrlPts = this.graph.getModel().getCell(45);
           ctrlPts.getGeometry().points = [new mxPoint(ox-950,oy-150)] 
+          
+          //M to S
+          var ctrlPts = this.graph.getModel().getCell(57);
+          ctrlPts.getGeometry().points = [new mxPoint(ox-350,oy+170)] 
           
           //U to S
           var ctrlPts = this.graph.getModel().getCell(74);
@@ -476,9 +480,8 @@ class Canvas extends React.Component {
           //AF to AE
           var ctrlPts = this.graph.getModel().getCell(73);
           ctrlPts.getGeometry().points = [new mxPoint(ox+550,oy+550)] 
-          // Add control point to Edge connecting ? and ?
-        //  var test = this.graph.getModel().getCell(20);
-        //  test.getGeometry().points = [new mxPoint(ox-1500,oy-500)]  
+          
+
 				}
 				finally
 				{
@@ -489,7 +492,11 @@ class Canvas extends React.Component {
          
 			}
       
-//Fit graph to screen      
+      //Highlighting a cell in the graph
+   var highlight = new mxCellHighlight(this.graph, '#ff0000', 1);
+   highlight.highlight(this.graph.view.getState(this.graph.getModel().getCell(3)));
+
+      //Fit graph to screen      
 this.graph.fit();
 this.graph.view.rendering = true;
 this.graph.refresh();
@@ -513,34 +520,7 @@ this.graph.refresh();
   
 }
 
-class ListBox extends React.Component {
-  render() {
-    
-    var letterStyle = {
-            backgroundColor: "#f5f5f5",
-            color: "#000",
-       
-            fontSize: 28,
-            width:"255px"
-             
-        };
-    return (
-      <div> 
-      <select style={letterStyle} name="cars" size="10">
-        <option value="White Fang">White Fang</option>
-        <option value="Call of the Wild">Call of the Wild</option>
-        <option value="Sea Wolf">Sea Wolf</option>
-        <option value="To Build a Fire">To Build a Fire</option>
-      </select>
-      </div>
 
-    );
-    
-    $( function() {
-    $( "#selectable" ).selectable();
-    } );
-  }
-}
 
 class DropDown extends React.Component {
   render() {
@@ -575,17 +555,44 @@ class DropDown extends React.Component {
   }
 }
 
- 	
-class EntireUserInterface extends React.Component {
+ 
+class ListBox extends React.Component {
+  render() {
+    
+    var letterStyle = {
+            backgroundColor: "#f5f5f5",
+            color: "#000",
+       
+            fontSize: 28,
+            width:"255px"
+             
+        };
+    return (
+      <div> 
+      <select style={letterStyle} name="support" size="10" onChange={this.props.onChange}>
+        <option value="Effect A">Effect A</option>
+        <option value="Effect B">Effect B</option>
+        <option value="Effect C & D">Effect C & D</option>
+      </select>
+      </div>
+
+    );
+  }
+}
+
+class UserInterface extends React.Component {
   
   constructor(props){
     super(props);
-    
-   
-
   }
   
-  
+  // Compute effects of enablers and store in state array
+ computeEffects()
+ {
+    console.log("dsf");
+ }
+   
+   
   render() {
     
  
@@ -612,17 +619,7 @@ class EntireUserInterface extends React.Component {
      
         };
     
-   /* var canvas = {
-      position:"fixed",
-      //overflow:"auto",
-      //marginRight: "200px",
-      bottom:"30%",
-      right:"25%",
-      width:"600px",
-      height:"600px",
-     //background:"url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Graph-paper.svg/600px-Graph-paper.svg.png')",
-      //cursor:"default"
-    }*/
+  
     return (
        
       <div style={parent}>
@@ -630,11 +627,10 @@ class EntireUserInterface extends React.Component {
           <Canvas />
         </div>
         <div style={listbox}>
-          <ListBox/>
+          <ListBox
+          onChange={() => this.computeEffects()}/>
         </div>
-         <div style={listbox}>
-          <ListBox/>
-        </div>
+        
         <div style={dropdown}>
          <DropDown />
         </div>
@@ -653,7 +649,7 @@ class EntireUserInterface extends React.Component {
 ReactDOM.render(
   
   
-  <EntireUserInterface />,
+  <UserInterface />,
   document.getElementById('container')
 
 );

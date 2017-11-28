@@ -1,11 +1,8 @@
-var json_edges = '{"system_edges":{"edges":[{"pn":"2","cn":"3"},{"pn":"2","cn":"4"},{"pn":"2","cn":"7"},{"pn":"2","cn":"8"},{"pn":"3","cn":"5"},{"pn":"4","cn":"6"},{"pn":"7","cn":"13"},{"pn":"8","cn":"14"},{"pn":"5","cn":"9"},{"pn":"5","cn":"10"},{"pn":"5","cn":"11"},{"pn":"6","cn":"12"},{"pn":"16","cn":"17"},{"pn":"13","cn":"15"},{"pn":"14","cn":"15"},{"pn":"12","cn":"15"}, {"pn":"11","cn":"15"},{"pn":"10","cn":"15"},{"pn":"9","cn":"15"},{"pn":"15","cn":"16"},{"pn":"3","cn":"18"},{"pn":"32","cn":"20"},{"pn":"32","cn":"19"}, {"pn":"15","cn":"21"},{"pn":"21","cn":"22"},{"pn":"17","cn":"32"},{"pn":"22","cn":"24"},{"pn":"19","cn":"24"},{"pn":"20","cn":"24"},{"pn":"18","cn":"24"}]}}';
-
-
-//{"system_edges":{"edges":[{"edgeID":"28","pn":"2","cn":"3"},{"edgeID":"29","pn":"2","cn":"4"},{"edgeID":"3","pn":"2","cn":"7"},{"edgeID":"4","pn":"2","cn":"8"},{"edgeID":"1","pn":"3","cn":"5"},{"edgeID":"2","pn":"4","cn":"6"},{"edgeID":"9","pn":"7","cn":"13"},{"edgeID":"10","pn":"8","cn":"14"},{"edgeID":"5","pn":"5","cn":"9"},{"edgeID":"6","pn":"5","cn":"10"},{"edgeID":"7","pn":"5","cn":"11"},{"edgeID":"8","pn":"6","cn":"12"},{"edgeID":"18","pn":"16","cn":"17"},{"edgeID":"15","pn":"13","cn":"15"},{"edgeID":"16","pn":"14","cn":"15"},{"edgeID":"14","pn":"12","cn":"15"}, {"edgeID":"13","pn":"11","cn":"15"},{"edgeID":"12","pn":"10","cn":"15"},{"edgeID":"11","pn":"9","cn":"15"},{"edgeID":"17","pn":"15","cn":"16"} ]}}';
+var json_edges = '{"system_edges":{"edges":[{"pn":"2","cn":"3"},{"pn":"2","cn":"4"},{"pn":"2","cn":"7"},{"pn":"2","cn":"8"},{"pn":"3","cn":"5"},{"pn":"4","cn":"6"},{"pn":"7","cn":"13"},{"pn":"8","cn":"14"},{"pn":"5","cn":"9"},{"pn":"5","cn":"10"},{"pn":"5","cn":"11"},{"pn":"6","cn":"12"},{"pn":"16","cn":"17"},{"pn":"13","cn":"15"},{"pn":"14","cn":"15"},{"pn":"12","cn":"15"}, {"pn":"11","cn":"15"},{"pn":"10","cn":"15"},{"pn":"9","cn":"15"},{"pn":"15","cn":"16"},{"pn":"3","cn":"18"},{"pn":"32","cn":"20"},{"pn":"32","cn":"19"}, {"pn":"15","cn":"21"},{"pn":"21","cn":"22"},{"pn":"17","cn":"32"},{"pn":"22","cn":"24"},{"pn":"19","cn":"24"},{"pn":"20","cn":"24"},{"pn":"18","cn":"24"},{"pn":"24","cn":"25"},{"pn":"24","cn":"26"},{"pn":"25","cn":"27"},{"pn":"26","cn":"27"},{"pn":"27","cn":"28"},{"pn":"28","cn":"29"},{"pn":"29","cn":"30"},{"pn":"30","cn":"31"},{"pn":"31","cn":"33"},{"pn":"32","cn":"33"},{"pn":"23","cn":"21"}]}}';
 
 
 
-var json_nodes = '{"system_nodes":{"nodes":[{"nodeID":"2","label":"V"},{"nodeID":"3","label":"A"},{"nodeID":"4","label":"B"},{"nodeID":"7","label":"E"},{"nodeID":"8","label":"F"},{"nodeID":"5","label":"C"},{"nodeID":"6","label":"D"}, {"nodeID":"13","label":"K"},{"nodeID":"14","label":"L"},{"nodeID":"9","label":"G"},{"nodeID":"10","label":"H"},{"nodeID":"11","label":"I"},{"nodeID":"12","label":"J"},{"nodeID":"15","label":"M"},{"nodeID":"16","label":"N"},{"nodeID":"17","label":"O"}, {"nodeID":"18","label":"P"}, {"nodeID":"32","label":"AF"},{"nodeID":"19","label":"Q"},{"nodeID":"20","label":"R"},{"nodeID":"21","label":"S"},{"nodeID":"22","label":"W"},{"nodeID":"24","label":"T"} ]}}';
+var json_nodes = '{"system_nodes":{"nodes":[{"nodeID":"2","label":"V"},{"nodeID":"3","label":"A"},{"nodeID":"4","label":"B"},{"nodeID":"7","label":"E"},{"nodeID":"8","label":"F"},{"nodeID":"5","label":"C"},{"nodeID":"6","label":"D"}, {"nodeID":"13","label":"K"},{"nodeID":"14","label":"L"},{"nodeID":"9","label":"G"},{"nodeID":"10","label":"H"},{"nodeID":"11","label":"I"},{"nodeID":"12","label":"J"},{"nodeID":"15","label":"M"},{"nodeID":"16","label":"N"},{"nodeID":"17","label":"O"}, {"nodeID":"18","label":"P"}, {"nodeID":"32","label":"AF"},{"nodeID":"19","label":"Q"},{"nodeID":"20","label":"R"},{"nodeID":"21","label":"S"},{"nodeID":"22","label":"W"},{"nodeID":"24","label":"T"},{"nodeID":"25","label":"Y"},{"nodeID":"26","label":"X"},{"nodeID":"27","label":"Z"},{"nodeID":"28","label":"AA"},{"nodeID":"29","label":"AB"},{"nodeID":"30","label":"AC"},{"nodeID":"31","label":"AD"},{"nodeID":"33","label":"AE"},{"nodeID":"23","label":"U"}     ]}}';
 
 //'{"system_nodes":{"nodes":[{"nodeID":"2","label":"V"},{"nodeID":"3","label":"A"},{"nodeID":"4","label":"B"},{"nodeID":"5","label":"C"},{"nodeID":"6","label":"D"},{"nodeID":"7","label":"E"},{"nodeID":"8","label":"F"},{"nodeID":"9","label":"G"},{"nodeID":"10","label":"H"},{"nodeID":"11","label":"I"},{"nodeID":"12","label":"J"},{"nodeID":"13","label":"K"},{"nodeID":"14","label":"L"},{"nodeID":"15","label":"M"},{"nodeID":"16","label":"N"},{"nodeID":"17","label":"O"}]}}';
 //{"nodeID":"18","label":"P"},{"nodeID":"19","label":"Q"},{"nodeID":"20","label":"R"},{"nodeID":"21","label":"S"},{"nodeID":"22","label":"T"},{"nodeID":"23","label":"U"},
@@ -20,8 +17,8 @@ class Canvas extends React.Component {
     this.graph = new mxGraph(container);
    
       /**
-				 * Returns the padding for pages in page view with scrollbars.
-				 */
+				* Returns the padding for pages in page view with scrollbars.
+				*/
   this.main(document.getElementById('graphContainer'));
 
   }
@@ -67,12 +64,12 @@ class Canvas extends React.Component {
 		//		this.graph.panningHandler.useLeftButtonForPanning = true;
         
            /**
-				 * Specifies the size of the size for "tiles" to be used for a graph with
-				 * scrollbars but no visible background page. A good value is large
-				 * enough to reduce the number of repaints that is caused for auto-
-				 * translation, which depends on this value, and small enough to give
-				 * a small empty buffer around the graph. Default is 400x400.
-				 */
+				* Specifies the size of the size for "tiles" to be used for a graph with
+				* scrollbars but no visible background page. A good value is large
+				* enough to reduce the number of repaints that is caused for auto-
+				* translation, which depends on this value, and small enough to give
+				* a small empty buffer around the graph. Default is 400x400.
+				*/
 				this.graph.scrollTileSize = new mxRectangle(0, 0,10, 10);
       
         // Set some stylesheet options for the visual appearance
@@ -127,8 +124,8 @@ class Canvas extends React.Component {
         // Disallow any selections
 				this.graph.setCellsSelectable(false);
         /**
-				 * Returns the size of the page format scaled with the page size.
-				 */
+				* Returns the size of the page format scaled with the page size.
+				*/
 				this.graph.getPageSize = function()
 				{
 					return (this.pageVisible) ? new mxRectangle(0, 0, this.pageFormat.width * this.pageScale,
@@ -136,19 +133,19 @@ class Canvas extends React.Component {
 				};
         
      /**
-				 * Returns the padding for pages in page view with scrollbars.
-				 */
+				* Returns the padding for pages in page view with scrollbars.
+				*/
 				this.graph.getPagePadding = function()
 				{
 					return new mxPoint(Math.max(0, Math.round(container.offsetWidth - 34)),
 							Math.max(0, Math.round(container.offsetHeight - 34)));
 				};
         /**
-				 * Returns a rectangle describing the position and count of the
-				 * background pages, where x and y are the position of the top,
-				 * left page and width and height are the vertical and horizontal
-				 * page count.
-				 */
+				* Returns a rectangle describing the position and count of the
+				* background pages, where x and y are the position of the top,
+				* left page and width and height are the vertical and horizontal
+				* page count.
+				*/
 				this.graph.getPageLayout = function()
 				{
 					var size = (this.pageVisible) ? this.getPageSize() : this.scrollTileSize;
@@ -198,10 +195,10 @@ class Canvas extends React.Component {
 				
        
         /**
-				 * Guesses autoTranslate to avoid another repaint (see below).
-				 * Works if only the scale of the graph changes or if pages
-				 * are visible and the visible pages do not change.
-				 */
+				* Guesses autoTranslate to avoid another repaint (see below).
+				* Works if only the scale of the graph changes or if pages
+				* are visible and the visible pages do not change.
+				*/
 				var graphViewValidate = this.graph.view.validate;
 				this.graph.view.validate = function()
 				{
@@ -247,7 +244,7 @@ class Canvas extends React.Component {
 						// after delayed call in window.resize event handler
 						if (min == null || min.width != minw || min.height != minh)
 						{
-						 this.minimumGraphSize = new mxRectangle(0, 0, minw, minh);
+						this.minimumGraphSize = new mxRectangle(0, 0, minw, minh);
 						}
 						
 						// Updates auto-translate to include padding and graph size
@@ -415,14 +412,59 @@ class Canvas extends React.Component {
           r.geometry.x = ox+750;
           r.geometry.y = oy+150;
           
+          var r = this.graph.getModel().getCell(23);
+          r.geometry.x = ox - 1250;
+          r.geometry.y = oy+400;
+          
           var r = this.graph.getModel().getCell(24);
           r.geometry.x = ox+1000;
           r.geometry.y = oy;
           
-          // Add control point to Edge connecting ? and ?
-        //  var test = this.graph.getModel().getCell(21);
-        //  test.getGeometry().points = [new mxPoint(ox-1400,oy)]    
+          var r = this.graph.getModel().getCell(25);
+          r.geometry.x = ox+1250;
+          r.geometry.y = oy-150;
           
+           var r = this.graph.getModel().getCell(26);
+          r.geometry.x = ox+1250;
+          r.geometry.y = oy+150;
+          
+          var r = this.graph.getModel().getCell(27);
+          r.geometry.x = ox+1500;
+          r.geometry.y = oy;
+          
+          var r = this.graph.getModel().getCell(28);
+          r.geometry.x = ox+1750;
+          r.geometry.y = oy;
+          
+           var r = this.graph.getModel().getCell(29);
+          r.geometry.x = ox+2000;
+          r.geometry.y = oy;
+
+          var r = this.graph.getModel().getCell(30);
+          r.geometry.x = ox+2250;
+          r.geometry.y = oy;
+          
+          var r = this.graph.getModel().getCell(31);
+          r.geometry.x = ox+2500;
+          r.geometry.y = oy;
+          
+            var r = this.graph.getModel().getCell(33);
+          r.geometry.x = ox+2700;
+          r.geometry.y = oy-150;
+          
+          //Add control points to edges so they are visually cleaner and don't traverse under vertices they don't connect to
+          // Add control point to Edge connecting ? and ?
+          //V to E
+          var ctrlPt = this.graph.getModel().getCell(36);
+          ctrlPt.getGeometry().points = [new mxPoint(ox-1400,oy)]    
+          
+          //V to F
+          ctrlPt = this.graph.getModel().getCell(37);
+          ctrlPt.getGeometry().points = [new mxPoint(ox-1400,oy)]  
+          
+          //U to S
+          var ctrlPts = this.graph.getModel().getCell(74);
+          ctrlPts.getGeometry().points = [new mxPoint(ox+550,oy+500)] 
           // Add control point to Edge connecting ? and ?
         //  var test = this.graph.getModel().getCell(20);
         //  test.getGeometry().points = [new mxPoint(ox-1500,oy-500)]  
@@ -435,6 +477,16 @@ class Canvas extends React.Component {
         
          
 			}
+      
+//Fit graph to screen      
+this.graph.fit();
+this.graph.view.rendering = true;
+this.graph.refresh();
+      
+      //Output XML of graph
+//var encoder = new mxCodec();
+//var node = encoder.encode(this.graph.getModel());
+//mxUtils.popup(mxUtils.getPrettyXml(node), true);
       
       /* Use bind(this) to bind the main EntireUserInterface object with the new object function or functor, which is being passed to setTimeout, allowing the 'this' keyword to refer to the EntireUserInterface object.*/
       window.setTimeout(function()
@@ -581,8 +633,8 @@ class EntireUserInterface extends React.Component {
   }
   
    /**
-				 * Returns the padding for pages in page view with scrollbars.
-				 */  
+				* Returns the padding for pages in page view with scrollbars.
+				*/  
 }
 
 
@@ -594,3 +646,4 @@ ReactDOM.render(
   document.getElementById('container')
 
 );
+
